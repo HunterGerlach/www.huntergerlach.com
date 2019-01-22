@@ -164,6 +164,11 @@ body {
   font-size: 18px;
 }
 
+/* Contact form */
+form#formaction > fieldset > input, form#formaction > fieldset > textarea {
+    margin: 0 auto;
+}
+
 /* Footer 
 -------------------------------------------------- */
 
