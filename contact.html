@@ -1,0 +1,19 @@
+---
+layout: page
+---
+<div class="container">
+    <h2>Contact Me</h2>
+    <form id="formaction" method="POST">
+        <input type="name" name="name" placeholder="Your name"><br /><br />
+        <input type="email" name="email" placeholder="Your email address"><br /><br />
+        <input type="text" name="subject" placeholder="Subject"><br /><br />
+        <textarea name="message" rows="10" cols="30" placeholder="Message..."></textarea><br /><br />
+        <input type="text" name="_gotcha" style="display:none" />
+        <input type="submit" value="Send">
+        <input type="hidden" name="_next" value="thanks.html" />
+    </form>
+    <script>
+        var contactform =  document.getElementById('formaction');
+        contactform.setAttribute('action', 'https://formspree.io/' + 'hunter' + '@' + 'huntergerlach' + '.' + 'com');
+    </script>
+</div>
