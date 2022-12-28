@@ -11,8 +11,8 @@ safe: true
 
 
 # edit here to achieve your personal greatness
-url: http://www.huntergerlach.com
-baseurl: /
+url: https://www.huntergerlach.com
+baseurl: https://www.huntergerlach.com/
 title: Hunter Gerlach
 author: Hunter Gerlach
 description: Personal website
