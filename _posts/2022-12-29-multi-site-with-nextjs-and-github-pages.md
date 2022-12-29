@@ -1,6 +1,13 @@
 ---
 layout: post
 title: Deploying a Next.JS Application to Multiple Stages with GitHub Pages and Action
+tags:
+- programming
+- web development
+- next.js
+- deployment
+- github pages
+- github actions
 ---
 # Deploying a Next.JS Application to Multiple Stages with GitHub Pages and Actions
 
