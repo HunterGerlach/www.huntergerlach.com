@@ -21,9 +21,9 @@ To set up GitHub Pages for the staging environment, follow these steps:
 
 1. Create a new repository for your Next.JS application.
 2. Add the code for your Next.JS application to the repository.
-3. Go to the settings page for the repository and enable GitHub Pages for the `master` branch.
+3. Go to the settings page for the repository and enable GitHub Pages for the `main` branch.
 4. Configure any necessary details, such as the URL of the staging environment.
-5. Push your code changes to the `master` branch of the repository. The application will be automatically deployed to the staging environment by GitHub Pages.
+5. Push your code changes to the `main` branch of the repository. The application will be automatically deployed to the staging environment by GitHub Pages.
 
 ## Setting up GitHub Actions for the Production Environment
 
@@ -40,7 +40,7 @@ To set up GitHub Actions for the production environment, follow these steps:
 
 By using GitHub Pages and Actions, you can easily set up a multi-stage deployment process for your Next.JS application. Whether you're deploying to staging or production, these tools make it easy to automate your workflow and ensure that your application is always up-to-date.
 
-I hope this blog post has helped you understand how to use GitHub Pages and Actions to deploy your Next.JS application to multiple stages or environments. If you have any questions or comments, feel free to leave them in the comments section below. 
+I hope this blog post has helped you understand how to use GitHub Pages and Actions to deploy your Next.JS application to multiple stages or environments. If you have any questions or comments, feel free to reach out to me on Twitter or LinkedIn. 
 
 ## Links
 
