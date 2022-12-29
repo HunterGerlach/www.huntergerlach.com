@@ -44,5 +44,12 @@ I hope this blog post has helped you understand how to use GitHub Pages and Acti
 
 ## Links
 
+Repositories:
+
 - <https://github.com/HunterGerlach/multi-stage-deployment-example-nextjs-github-pages-staging>
 - <https://github.com/HunterGerlach/multi-stage-deployment-example-nextjs-github-pages-production>
+
+Live demo sites:
+
+- <https://huntergerlach.github.io/multi-stage-deployment-example-nextjs-github-pages-staging>
+- <https://huntergerlach.github.io/multi-stage-deployment-example-nextjs-github-pages-production>
