@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Deploying a Next.JS Application to Multiple Stages with GitHub Pages and Action
+title: Deploying a Next.JS Application to Multiple Stages with GitHub Pages and GitHub Actions
 tags:
 - programming
 - web development
@@ -9,7 +9,7 @@ tags:
 - github pages
 - github actions
 ---
-# Deploying a Next.JS Application to Multiple Stages with GitHub Pages and Actions
+# Deploying a Next.JS Application to Multiple Stages with GitHub Pages and GitHub Actions
 
 Are you looking for a way to deploy your Next.JS application to multiple stages or environments, such as staging and production? In this blog post, I'll show you how to use GitHub Pages and Actions to set up a multi-stage deployment process for your Next.JS application.
 
