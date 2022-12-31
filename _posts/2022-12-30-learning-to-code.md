@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Learning to code
+comments_id: 1
 tags:
 - programming
 - coding
