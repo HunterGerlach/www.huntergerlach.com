@@ -11,7 +11,7 @@
         border-top: 1px solid #aaa;
 }
 
-#gh-comments-list > li > a.user {
+#gh-comments-list > li > a.user, img {
             width: 2.5em;
             height: 2.5em;
             overflow: hidden;
@@ -24,8 +24,9 @@
 
 }
 
-#gh-comments-list > li > a..comment-url {
+#gh-comments-list > li > a.comment-url {
             width: 100%;
+            margin: 0 auto;
             text-align: right;
             font-size: .6em;
             opacity: .5;
@@ -37,6 +38,7 @@
 
 #gh-comments-list > li > .comment-content {
             padding: 0 1.5em;
+            max-width: 695px;
 }
 
 #leave-a-comment {
