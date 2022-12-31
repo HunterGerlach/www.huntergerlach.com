@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Reflections on 2022: Personal and Professional Growth
+title: "Reflections on 2022: Personal and Professional Growth"
 comments_id: 3
 tags:
 - personal growth
