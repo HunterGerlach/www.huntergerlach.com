@@ -8,9 +8,11 @@ tags:
 - GitHub Co-Pilot 
 - ChatGPT
 ---
-As a software engineer, you are constantly looking for ways to improve your efficiency and productivity. One area of technology that has gained a lot of attention in recent years is artificial intelligence (AI). AI tools can help you write code more quickly by generating it automatically based on a prompt or set of instructions.
+As a software engineer, I am constantly looking for ways to improve my efficiency and productivity. One area of technology that I've found which has gained a lot of attention in recent years is artificial intelligence (AI). AI tools can help you write code more quickly by generating it automatically based on a prompt or set of instructions.
 
 However, it's important to use AI tools as a supplement to, rather than a replacement for, human expertise and judgment. While AI can be a useful tool, it's not perfect, and it's always a good idea to review the code that it generates to ensure that it meets the desired specifications and is of high quality.
+
+What follows is my evaluation of the benefits and limitations of current AI tooling. I did not focus on any one single tool, but rather the genre as a whole. After exploring the landscape, we'll wrap up with a few tips for using these tools effectively. Let's dig in.
 
 The Benefits of AI Tools:
 
@@ -27,8 +29,9 @@ The Limitations of AI Tools:
 - Lack of creativity: AI tools may not be able to come up with creative or innovative solutions to problems, as they are limited to the information and instructions provided to them.
 - Dependency: Relying too heavily on AI tools may lead to a loss of skills and knowledge, as developers may not have the opportunity to practice and improve their own coding abilities.
 - Bias: If the dataset used to train an AI tool is biased, the tool may generate biased output as well. It's important to carefully consider the dataset used to train the tool and ensure that it is diverse and representative.
+- Connectivity: The current generation of AI tools (specifically LLMs) are hosted online by large organizations. Any requests you make to their service can be logged and this is a valid concern for some people/organizations. Additionally, you cannot access the service if you yourself are not connected to the internet (e.g. travel - although, that is increasingly less of a problem).
 
-Despite these limitations, AI tools can still be a valuable addition to a software engineer's toolkit when used effectively. Now it's time to explore a few tips for using AI tools effectively in software development.
+Despite these limitations, AI tools can still be a valuable addition to a software engineer's toolkit when used effectively. And now for the tips I promised for using AI tools effectively in software development.
 
 Tips for Using AI Tools Effectively:
 
@@ -44,6 +47,6 @@ However, it's always a good idea to periodically check in with yourself to ensur
 
 > Break Glass Question: "If I had to write code manually, would I be able to do so effectively?"
 
-AI tools can be a valuable addition to a software engineer's toolkit, providing the ability to generate code quickly and improve efficiency. However, it's important to use these tools as a supplement to, rather than a replacement for, human expertise and judgment. By understanding the benefits and limitations of AI tools, and using them effectively, you can maximize their value in your workflow.
+AI tools can be a valuable addition to a software engineer's toolkit, providing the ability to generate code quickly and improve efficiency. But remember, it's important to use these tools to supplement your own expertise and judgment, not to do all the work on your behalf. By understanding the benefits and limitations of AI tools, and using them effectively, you can maximize their value in your workflow.
 
 Do you have any tips for using AI tools effectively in software development? Share your thoughts in the comments below!
