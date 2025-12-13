@@ -2,7 +2,7 @@
 layout: post
 title: Why Complex Systems Fail Quietly — and How to Correct Them
 comments_id: 6
-tags
+tags:
 - systems
 - programming
 - ai
