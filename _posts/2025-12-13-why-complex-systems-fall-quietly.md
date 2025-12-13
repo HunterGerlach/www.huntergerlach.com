@@ -7,6 +7,7 @@ tags
 - programming
 - ai
 - organizations
+- agents
 ---
 # Why Complex Systems Fail Quietly — and How to Correct Them
 
@@ -33,7 +34,7 @@ This is quiet failure.
 
 The instinctive response is to add more layers: dashboards, rules, approvals, governance. Each layer promises control, but together they reduce agency. Humans supervise outcomes they no longer understand.
 
-## The Positive Correction
+## Restoring Agency
 
 Now compare that to a corrected version of the same system.
 
@@ -46,6 +47,11 @@ Most importantly, responsibility is made local again: specific humans own specif
 The result is not perfect accuracy. It is something better.
 
 Humans trust the system because they can interrogate it. Failures are faster to diagnose. Improvements compound because decisions leave artifacts. The system becomes easier to operate as it grows, not harder.
+
+> **Aside:** Agency is not the same thing as *agents*.  
+> Agents are components that act.  
+> Agency is the ability for humans to understand, intervene, and remain accountable.  
+> You can add agents and still lose agency. Restoring it is a design choice.
 
 Intelligence is no longer a black box. It is a tool.
 
