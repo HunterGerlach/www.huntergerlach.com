@@ -12,7 +12,7 @@
 #
 # Exit codes: 0 = all links OK or all fixed, 1 = broken links remain
 
-set -euo pipefail
+set -eo pipefail
 
 FIX_MODE=false
 if [[ "${1:-}" == "--fix" ]]; then
@@ -49,11 +49,13 @@ for file in "${FILES[@]}"; do
     [[ "$url" =~ ^https?://(localhost|127\.0\.0\.1|example\.com) ]] && continue
     # Skip Jekyll/Liquid template URLs
     [[ "$url" =~ \{\{ ]] && continue
+    # Skip bare domains with no path (typically CSP directives, not content links)
+    [[ "$url" =~ ^https?://[^/]+/?$ ]] && continue
     # Store first file where URL appears
     if [[ -z "${URL_SOURCE[$url]:-}" ]]; then
       URL_SOURCE["$url"]="$file"
     fi
-  done < <(grep -oEh 'https?://[^"'\'')<> ]+' "$file" 2>/dev/null | sed 's/[.,;:!)]*$//' | sort -u)
+  done < <(grep -oEh 'https?://[^"'"'"')<> ]+' "$file" 2>/dev/null | sed 's/].*//' | sed 's/`.*//' | sed 's/[.,;:!)*]*$//' | sort -u)
 done
 
 TOTAL="${#URL_SOURCE[@]}"
