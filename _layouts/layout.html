@@ -15,10 +15,15 @@
     {% assign page_url = page.url | prepend: site.url %}
     {% assign page_image = site.url | append: site.baseurl | append: "/static/img/" | append: site.avatar %}
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://avatars.githubusercontent.com; connect-src https://api.github.com https://www.google-analytics.com https://www.googletagmanager.com; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://avatars.githubusercontent.com; connect-src https://api.github.com https://www.google-analytics.com https://www.googletagmanager.com; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'">
     <meta name="description" content="{{ page_description }}">
     <link rel="canonical" href="{{ page_url }}">
     <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico">
+
+    <!-- Preconnect to external origins -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Open Graph -->
     <meta property="og:title" content="{{ page_title }}">
@@ -51,6 +56,31 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400&display=swap" />
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/static/css/syntax.css" />
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/static/css/comments.css" />
+
+    <!-- Structured Data -->
+    {% if page.layout == 'post' %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": {{ page.title | jsonify }},
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "author": { "@type": "Person", "name": {{ site.author | jsonify }} },
+      "url": {{ page_url | jsonify }},
+      "image": {{ page_image | jsonify }}
+    }
+    </script>
+    {% else %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": {{ site.title | jsonify }},
+      "url": {{ site.url | jsonify }},
+      "author": { "@type": "Person", "name": {{ site.author | jsonify }} }
+    }
+    </script>
+    {% endif %}
 
     <!-- Google Analytics -->
     {% include analytics.html %}
