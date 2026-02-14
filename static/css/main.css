@@ -21,10 +21,10 @@ body {
 .navbar {
   margin-bottom: 10px;
   --bs-navbar-color: #6b6b6b;
-  --bs-navbar-hover-color: #2b6cb0;
+  --bs-navbar-hover-color: #cc0000;
   --bs-navbar-brand-color: #6b6b6b;
-  --bs-navbar-brand-hover-color: #2b6cb0;
-  --bs-navbar-active-color: #2b6cb0;
+  --bs-navbar-brand-hover-color: #cc0000;
+  --bs-navbar-active-color: #cc0000;
   --bs-navbar-toggler-border-color: transparent;
 }
 .navbar-brand {
@@ -46,11 +46,11 @@ body {
   margin: 20px 0;
 }
 .container a {
-  color: #2b6cb0;
+  color: #333333;
   transition: color 0.2s;
 }
 .container a:hover {
-  color: #1a5294;
+  color: #cc0000;
 }
 .card h4 {
   text-align: left;
@@ -66,10 +66,10 @@ body {
   font-size: 15px;
 }
 .card h4 a, h5 a {
-  color: #2b6cb0;
+  color: #333333;
 }
 .card h4 a:hover, h5 a:hover {
-  color: #1a5294;
+  color: #cc0000;
 }
 .card {
   border-style: none;
@@ -89,7 +89,7 @@ body {
   transition: color 0.2s;
 }
 .social a:hover {
-  color: #2b6cb0;
+  color: #cc0000;
 }
 .avatar {
   padding-top: 5%;
@@ -154,7 +154,7 @@ form#formaction textarea.form-input {
     resize: vertical;
 }
 form#formaction .form-btn {
-    background-color: #2b6cb0;
+    background-color: #cc0000;
     color: #fff;
     border: 0;
     border-radius: 4px;
@@ -164,7 +164,7 @@ form#formaction .form-btn {
     transition: background-color 0.2s;
 }
 form#formaction .form-btn:hover {
-    background-color: #1a5294;
+    background-color: #a30000;
 }
 
 /* Footer
