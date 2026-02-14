@@ -181,6 +181,18 @@ body {
   padding: 0;
 }
 
+/* Screen-reader only (visually hidden labels) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 /* Contact form */
 form#formaction > fieldset > input, form#formaction > fieldset > textarea {
     margin: 0 auto;
