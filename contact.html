@@ -5,16 +5,16 @@ layout: page
     <h2>Contact Me</h2>
     <form id="formaction" method="POST">
         <fieldset class="form-group">
-            <label for="name" class="sr-only">Your name</label>
+            <label for="name" class="visually-hidden">Your name</label>
             <input type="text" id="name" name="name" class="form-input" placeholder="Your name">
-            <label for="email" class="sr-only">Your email address</label>
+            <label for="email" class="visually-hidden">Your email address</label>
             <input type="email" id="email" name="email" class="form-input" placeholder="Your email address">
         </fieldset>
 
         <fieldset class="form-group">
-            <label for="subject" class="sr-only">Subject</label>
+            <label for="subject" class="visually-hidden">Subject</label>
             <input type="text" id="subject" name="subject" class="form-input" placeholder="Subject">
-            <label for="message" class="sr-only">Message</label>
+            <label for="message" class="visually-hidden">Message</label>
             <textarea id="message" name="message" rows="10" cols="30" class="form-input" placeholder="Message..."></textarea>
             <input type="text" name="_gotcha" style="display:none" />
             <input type="hidden" name="_next" value="{{ site.baseurl }}/thanks" />

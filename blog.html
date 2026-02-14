@@ -5,8 +5,8 @@ title: Blog
 
 <div class="container">
   <h3>Latest Post</h3>
-  <div class="panel panel-default">
-    <div class="panel-body">
+  <div class="card">
+    <div class="card-body">
       {% for post in site.posts limit:1 %}
       <div class="row">
         <div class="col-sm-4 col-md-4 col-lg-4">
@@ -28,8 +28,8 @@ title: Blog
 </div>
 <div class="container">
   <h3>Archive</h3>
-  <div class="panel panel-default">
-    <div class="panel-body">
+  <div class="card">
+    <div class="card-body">
       {% for post in site.posts offset:1 %}
       <div class="row">
         <div class="col-sm-4 col-md-4 col-lg-4">

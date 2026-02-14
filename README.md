@@ -10,7 +10,7 @@ Personal blog built with [Jekyll](https://jekyllrb.com/) and [Bootstrap](https:/
 
 - **Jekyll** static site generator (v3.9.x) hosted on **GitHub Pages**
 - **GitHub Issues** as the comment backend — no third-party comment service needed
-- **Bootstrap 3.4.1** CSS for layout (grid, navbar, panels)
+- **Bootstrap 5.3** CSS for layout (grid, navbar, cards)
 - **Google Fonts** (Source Sans Pro) for typography
 - **Formspree** for the contact form
 - **Inline SVGs** for icons (no icon font library)
