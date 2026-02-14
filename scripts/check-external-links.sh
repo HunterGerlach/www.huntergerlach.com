@@ -51,6 +51,8 @@ for file in "${FILES[@]}"; do
     [[ "$url" =~ \{\{ ]] && continue
     # Skip bare domains with no path (typically CSP directives, not content links)
     [[ "$url" =~ ^https?://[^/]+/?$ ]] && continue
+    # Skip placeholder URLs in documentation
+    [[ "$url" =~ YOUR-USERNAME|YOUR-ORG|example\.org ]] && continue
     # Store first file where URL appears
     if [[ -z "${URL_SOURCE[$url]:-}" ]]; then
       URL_SOURCE["$url"]="$file"
