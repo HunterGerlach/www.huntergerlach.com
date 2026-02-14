@@ -22,10 +22,6 @@ github: HunterGerlach
 twitter: HunterGerlach
 linkedin: hgerlach
 #stackoverflow: username   #e.g: users/2735833/proton1h1
-#Comment out if you don't want disqus
-#disqus: username
 google_analytics: G-246NB12NH0
 
-
-# needed for travis-ci build
 exclude: [vendor]

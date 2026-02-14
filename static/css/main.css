@@ -188,6 +188,16 @@ form#formaction > fieldset > input, form#formaction > fieldset > textarea {
 form#formaction {
     margin-bottom: 24px;
 }
+form#formaction .pure-group {
+    margin-bottom: 12px;
+}
+form#formaction .pure-button-primary {
+    background-color: #5890e6;
+    transition: background-color 0.2s;
+}
+form#formaction .pure-button-primary:hover {
+    background-color: #3a70c4;
+}
 
 /* Footer
 -------------------------------------------------- */
