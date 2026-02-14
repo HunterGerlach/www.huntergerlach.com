@@ -24,4 +24,16 @@ linkedin: hgerlach
 #stackoverflow: username   #e.g: users/2735833/proton1h1
 google_analytics: G-246NB12NH0
 
-exclude: [vendor]
+exclude:
+  - vendor
+  - scripts
+  - docs
+  - Makefile
+  - AGENTS.md
+  - CLAUDE.md
+  - AGENT_INSTRUCTIONS.md
+  - .agent
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
