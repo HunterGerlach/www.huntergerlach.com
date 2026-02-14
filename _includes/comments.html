@@ -3,6 +3,7 @@ const GH_API_URL = 'https://api.github.com/repos/HunterGerlach/www.huntergerlach
 
 let request = new XMLHttpRequest();
 request.open( 'GET', GH_API_URL, true );
+request.setRequestHeader( 'Accept', 'application/vnd.github.html+json' );
 request.onload = function() {
 	if ( this.status >= 200 && this.status < 400 ) {
 		let response = JSON.parse( this.response );
@@ -37,7 +38,7 @@ function createCommentEl( response ) {
 
 	let commentContents = document.createElement( 'div' );
 	commentContents.classList.add( 'comment-content' );
-	commentContents.innerHTML = response.body;
+	commentContents.innerHTML = response.body_html;
 
 	let comment = document.createElement( 'li' );
 	comment.setAttribute( 'data-created', response.created_at );
@@ -59,5 +60,5 @@ request.send();
 	<h2>Comments</h2>
 	<ul id="gh-comments-list"></ul>
 	<p id="no-comments-found">No comments found for this article.</p>
-	<p id="leave-a-comment">Join the discussion for this article on <a href="https://github.com/HunterGerlach/www.huntergerlach.com/issues/{{ page.comments_id }}">this ticket</a>. Comments appear on this page instantly.</p>
+	<p id="leave-a-comment">Join the discussion for this article on <a href="https://github.com/HunterGerlach/www.huntergerlach.com/issues/{{ page.comments_id }}">this ticket</a>. Comments appear after refreshing the page.</p>
 </div>

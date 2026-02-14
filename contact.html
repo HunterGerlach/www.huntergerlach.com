@@ -5,7 +5,7 @@ layout: page
     <h2>Contact Me</h2>
     <form id="formaction" class="pure-form" method="POST">
         <fieldset class="pure-group">
-            <input type="name" name="name" class="pure-input-1-2" placeholder="Your name">
+            <input type="text" name="name" class="pure-input-1-2" placeholder="Your name">
             <input type="email" name="email" class="pure-input-1-2" placeholder="Your email address">
         </fieldset>
 
@@ -13,7 +13,7 @@ layout: page
             <input type="text" name="subject" class="pure-input-1-2" placeholder="Subject">
             <textarea name="message" rows="10" cols="30" class="pure-input-1-2" placeholder="Message..."></textarea>
             <input type="text" name="_gotcha" style="display:none" />
-            <input type="hidden" name="_next" value="{{ site.baseurl}}thanks" />
+            <input type="hidden" name="_next" value="{{ site.baseurl }}/thanks" />
         </fieldset>    
         <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Send</button>   
     </form>

@@ -12,7 +12,7 @@ safe: true
 
 # edit here to achieve your personal greatness
 url: https://www.huntergerlach.com
-baseurl: https://www.huntergerlach.com/
+baseurl: ""
 title: Hunter Gerlach
 author: Hunter Gerlach
 description: Personal website
@@ -24,7 +24,7 @@ linkedin: hgerlach
 #stackoverflow: username   #e.g: users/2735833/proton1h1
 #Comment out if you don't want disqus
 #disqus: username
-google_analytics: GA4-346272461
+google_analytics: G-246NB12NH0
 
 
 # needed for travis-ci build

@@ -42,9 +42,7 @@ layout: layout
 			</div>
 		</div>
 	</div>
-	{% include disqus.html %}
-
-		{% if page.comments_id %}
+	{% if page.comments_id %}
 			{% include comments.html %}
 		{% endif %}
 </div>
