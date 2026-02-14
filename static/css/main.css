@@ -5,7 +5,7 @@ body {
   height: 100%;
   background-color: #fff;
   font-family: 'Source Sans Pro', sans-serif;
-  border-top: 3px solid #5890e6;
+  border-top: 3px solid #cc0000;
 }
 /* Wrapper for page content to push down footer */
 #wrap {
@@ -171,5 +171,5 @@ form#formaction .form-btn:hover {
 -------------------------------------------------- */
 
 footer {
-  border-bottom: 5px solid #5890e6;
+  border-bottom: 5px solid #cc0000;
 }
