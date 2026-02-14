@@ -31,3 +31,42 @@ jobs:
             --disable-external \
             --ignore-urls "/^#/" \
             --no-enforce-https
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: _site
+          path: ./_site
+
+  accessibility:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: _site
+          path: ./_site
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pa11y-ci
+        run: npm install -g pa11y-ci
+
+      - name: Serve site and run a11y audit
+        run: |
+          npx serve ./_site -l 5000 &
+          sleep 3
+          URLS=$(find ./_site -name '*.html' -not -path './_site/404.html' \
+            | sed 's|^./_site|http://localhost:5000|' \
+            | sed 's|/index\.html$|/|')
+          echo "Testing URLs:"
+          echo "$URLS"
+          echo "$URLS" | xargs pa11y-ci

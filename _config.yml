@@ -37,3 +37,5 @@ exclude:
   - LICENSE
   - Gemfile
   - Gemfile.lock
+  - .pa11yci.json
+  - node_modules

@@ -76,7 +76,7 @@ Pushes to `main` trigger GitHub Pages' **built-in Jekyll build** (the "pages bui
 
 | Workflow | Trigger | Purpose |
 |----------|---------|---------|
-| `ci.yml` | Push/PR to main | Jekyll build + HTML validation (html-proofer) |
+| `ci.yml` | Push/PR to main | Jekyll build + HTML validation (html-proofer) + WCAG 2.1 AA accessibility audit (pa11y-ci) |
 | `link-check.yml` | Weekly (Monday) / manual | Check external links, auto-PR with Wayback Machine replacements |
 | `create-comment-issues.yml` | Push to main (posts) | Create GitHub Issues for posts with `comments_id: auto` |
 
@@ -97,6 +97,7 @@ Pushes to `main` trigger GitHub Pages' **built-in Jekyll build** (the "pages bui
 | `make serve` | Start local dev server |
 | `make test` | Build + validate HTML with html-proofer |
 | `make check-links` | Check external URLs for broken links |
+| `make a11y` | Build + run WCAG 2.1 AA accessibility audit (requires Node.js) |
 | `make install` | Install Ruby dependencies |
 
 ## Contributing
