@@ -8,12 +8,14 @@ Personal blog built with [Jekyll](https://jekyllrb.com/) and [Bootstrap](https:/
 
 ## Architecture Overview
 
-- **Jekyll** static site generator (v3.9.x) hosted on **GitHub Pages**
-- **GitHub Issues** as the comment backend — no third-party comment service needed
-- **Bootstrap 5.3** CSS for layout (grid, navbar, cards)
+- **Jekyll** static site generator hosted on **GitHub Pages**
+- **GitHub Issues** as the comment backend — no third-party comment service needed (see [ADR 0001](docs/adr/0001-use-github-issues-for-comments.md))
+- **Bootstrap 5.3** CSS for layout (grid, navbar, cards) — no JS bundle (see [ADR 0003](docs/adr/0003-migrate-bootstrap-3-to-5.md))
 - **Google Fonts** (Source Sans Pro) for typography
 - **Formspree** for the contact form
-- **Inline SVGs** for icons (no icon font library)
+- **Inline SVGs** for icons (no icon font libraries)
+- **Content-Security-Policy** restricting resource origins (see [ADR 0005](docs/adr/0005-add-content-security-policy.md))
+- **JSON-LD** structured data for blog posts and site metadata
 
 ## Project Structure
 
@@ -22,15 +24,20 @@ _posts/          Blog posts (Markdown)
 _layouts/        Page templates (layout, post, page)
 _includes/       Reusable partials (comments, header, footer, analytics, social)
 static/css/      Stylesheets (main, syntax highlighting, comments)
+static/js/       External scripts (analytics, comments, contact form)
 static/img/      Images
+.agent/          Agent playbook support files (instructions, overrides)
+.github/         CI workflows (build validation, link checking, comment issues)
+docs/adr/        Architecture Decision Records
+scripts/         Maintenance scripts (external link checker)
 _config.yml      Jekyll configuration
-CNAME            Custom domain (www.huntergerlach.com)
-Gemfile          Ruby dependencies
+AGENTS.md        AI agent bootstrap instructions
+Makefile         Canonical build/test/serve commands
 ```
 
 ## How Comments Work
 
-Each blog post can optionally have a `comments_id` field in its frontmatter that maps to a GitHub Issue number in this repo. When a post has `comments_id`, `_includes/comments.html` is included in the page and uses vanilla JavaScript to fetch comments from the GitHub API (`/repos/HunterGerlach/www.huntergerlach.com/issues/{comments_id}/comments`). Comments render directly on the post page. Readers click through to the linked GitHub Issue to leave a new comment.
+Each blog post can optionally have a `comments_id` field in its frontmatter that maps to a GitHub Issue number in this repo. When a post has `comments_id`, `_includes/comments.html` loads `static/js/comments.js` which fetches comments from the GitHub API and renders them on the post page with HTML sanitization. Readers click through to the linked GitHub Issue to leave a new comment.
 
 ### Adding comments to a new post
 
@@ -47,7 +54,7 @@ To add comments manually instead, create a GitHub Issue in this repo, note its n
    ---
    layout: post
    title: Your Post Title
-   comments_id: 7
+   comments_id: auto
    tags:
    - topic
    - another-topic
@@ -63,16 +70,34 @@ Posts are served at `www.huntergerlach.com/<title-slug>.html` (configured via `p
 
 ## Build & Deployment
 
-Pushes to `main` trigger GitHub Pages' **built-in Jekyll build** (the "pages build and deployment" action visible in the Actions tab). There is one custom workflow, `create-comment-issues.yml`, which automatically creates GitHub Issues for posts with `comments_id: auto` and updates the frontmatter with the real issue number. The site is served at [www.huntergerlach.com](https://www.huntergerlach.com) via the `CNAME` file.
+Pushes to `main` trigger GitHub Pages' **built-in Jekyll build** (the "pages build and deployment" action visible in the Actions tab).
+
+### CI Workflows
+
+| Workflow | Trigger | Purpose |
+|----------|---------|---------|
+| `ci.yml` | Push/PR to main | Jekyll build + HTML validation (html-proofer) |
+| `link-check.yml` | Weekly (Monday) / manual | Check external links, auto-PR with Wayback Machine replacements |
+| `create-comment-issues.yml` | Push to main (posts) | Create GitHub Issues for posts with `comments_id: auto` |
 
 ## Running Locally
 
 1. Install Jekyll by following the [installation guide](https://jekyllrb.com/docs/installation/).
 2. Clone this repository: `git clone https://github.com/HunterGerlach/www.huntergerlach.com.git`
 3. Navigate to the repo: `cd www.huntergerlach.com`
-4. Install dependencies: `bundle install`
-5. Start the local server: `bundle exec jekyll serve`
+4. Install dependencies: `make install`
+5. Start the local server: `make serve`
 6. Open `http://localhost:3000` in your browser (port configured in `_config.yml`).
+
+### Make Targets
+
+| Target | Command |
+|--------|---------|
+| `make build` | Build the Jekyll site |
+| `make serve` | Start local dev server |
+| `make test` | Build + validate HTML with html-proofer |
+| `make check-links` | Check external URLs for broken links |
+| `make install` | Install Ruby dependencies |
 
 ## Contributing
 
