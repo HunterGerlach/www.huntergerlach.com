@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+        env:
+          BUNDLE_WITH: test
+
+      - name: Build site
+        run: bundle exec jekyll build
+
+      - name: Validate HTML
+        run: |
+          bundle exec htmlproofer ./_site \
+            --disable-external \
+            --ignore-urls "/^#/" \
+            --no-enforce-https
