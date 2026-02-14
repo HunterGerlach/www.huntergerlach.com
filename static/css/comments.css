@@ -11,7 +11,7 @@
         border-top: 1px solid #aaa;
 }
 
-#gh-comments-list > li > a.user, img {
+#gh-comments-list > li > a.user {
             width: 2.5em;
             height: 2.5em;
             overflow: hidden;
@@ -30,10 +30,10 @@
             text-align: right;
             font-size: .6em;
             opacity: .5;
-
-            &:hover {
-                opacity: 1;
-            }
+            transition: opacity 0.2s;
+}
+#gh-comments-list > li > a.comment-url:hover {
+            opacity: 1;
 }
 
 #gh-comments-list > li > .comment-content {
@@ -45,12 +45,11 @@
     background: #000;
     color: #fff;
     padding: 1rem;
-
-    a {
-        color: #fff;
-        border-bottom-color: #fff;
-        outline-color: #fff;
-    }
+}
+#leave-a-comment a {
+    color: #fff;
+    border-bottom-color: #fff;
+    outline-color: #fff;
 }
 
 #no-comments-found {
