@@ -10,17 +10,18 @@ Personal blog built with [Jekyll](https://jekyllrb.com/) and [Bootstrap](https:/
 
 - **Jekyll** static site generator (v3.9.x) hosted on **GitHub Pages**
 - **GitHub Issues** as the comment backend — no third-party comment service needed
-- **Bootstrap 3** + custom CSS for styling
+- **Bootstrap 3.4.1** CSS for layout (grid, navbar, panels)
+- **Google Fonts** (Source Sans Pro) for typography
 - **Formspree** for the contact form
+- **Inline SVGs** for icons (no icon font library)
 
 ## Project Structure
 
 ```
 _posts/          Blog posts (Markdown)
-_layouts/        Page templates (layout, post, page, home)
+_layouts/        Page templates (layout, post, page)
 _includes/       Reusable partials (comments, header, footer, analytics, social)
-static/css/      Stylesheets
-static/js/       JavaScript
+static/css/      Stylesheets (main, syntax highlighting, comments)
 static/img/      Images
 _config.yml      Jekyll configuration
 CNAME            Custom domain (www.huntergerlach.com)

@@ -1,50 +1,48 @@
 <script>
 const GH_API_URL = 'https://api.github.com/repos/HunterGerlach/www.huntergerlach.com/issues/{{ page.comments_id }}/comments?per_page=100';
 
-let request = new XMLHttpRequest();
-request.open( 'GET', GH_API_URL, true );
-request.setRequestHeader( 'Accept', 'application/vnd.github.html+json' );
-request.onload = function() {
-	if ( this.status >= 200 && this.status < 400 ) {
-		let response = JSON.parse( this.response );
-
-		for ( var i = 0; i < response.length; i++ ) {
-			document.getElementById( 'gh-comments-list' ).appendChild( createCommentEl( response[ i ] ) );
-		}
-
-		if ( 0 === response.length ) {
-			document.getElementById( 'no-comments-found' ).style.display = 'block';
-		}
-	} else {
-		console.error( this );
+fetch( GH_API_URL, {
+	headers: { 'Accept': 'application/vnd.github.html+json' }
+})
+.then( function( res ) { return res.json(); })
+.then( function( comments ) {
+	if ( comments.length === 0 ) {
+		document.getElementById( 'no-comments-found' ).style.display = 'block';
+		return;
 	}
-};
 
-function createCommentEl( response ) {
-	let user = document.createElement( 'a' );
-	user.setAttribute( 'href', response.user.url.replace( 'api.github.com/users', 'github.com' ) );
+	var list = document.getElementById( 'gh-comments-list' );
+	comments.forEach( function( c ) {
+		list.appendChild( createCommentEl( c ) );
+	});
+})
+.catch( function( err ) { console.error( err ); });
+
+function createCommentEl( c ) {
+	var user = document.createElement( 'a' );
+	user.setAttribute( 'href', c.user.url.replace( 'api.github.com/users', 'github.com' ) );
 	user.classList.add( 'user' );
 
-	let userAvatar = document.createElement( 'img' );
+	var userAvatar = document.createElement( 'img' );
 	userAvatar.classList.add( 'avatar' );
-	userAvatar.setAttribute( 'src', response.user.avatar_url );
-	userAvatar.setAttribute( 'alt', response.user.login + '\'s avatar' );
+	userAvatar.setAttribute( 'src', c.user.avatar_url );
+	userAvatar.setAttribute( 'alt', c.user.login + '\'s avatar' );
 
 	user.appendChild( userAvatar );
 
-	let commentLink = document.createElement( 'a' );
-	commentLink.setAttribute( 'href', response.html_url );
+	var commentLink = document.createElement( 'a' );
+	commentLink.setAttribute( 'href', c.html_url );
 	commentLink.classList.add( 'comment-url' );
-	commentLink.innerHTML = '#' + response.id + ' - ' + response.created_at;
+	commentLink.textContent = '#' + c.id + ' - ' + c.created_at;
 
-	let commentContents = document.createElement( 'div' );
+	var commentContents = document.createElement( 'div' );
 	commentContents.classList.add( 'comment-content' );
-	commentContents.innerHTML = response.body_html;
+	commentContents.innerHTML = c.body_html;
 
-	let comment = document.createElement( 'li' );
-	comment.setAttribute( 'data-created', response.created_at );
-	comment.setAttribute( 'data-author-avatar', response.user.avatar_url );
-	comment.setAttribute( 'data-user-url', response.user.url );
+	var comment = document.createElement( 'li' );
+	comment.setAttribute( 'data-created', c.created_at );
+	comment.setAttribute( 'data-author-avatar', c.user.avatar_url );
+	comment.setAttribute( 'data-user-url', c.user.url );
 
 	comment.appendChild( user );
 	comment.appendChild( commentContents );
@@ -52,7 +50,6 @@ function createCommentEl( response ) {
 
 	return comment;
 }
-request.send();
 </script>
 
 <hr>
