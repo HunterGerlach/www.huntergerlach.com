@@ -1,0 +1,608 @@
+---
+layout: null
+permalink: /next/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hunter Gerlach — AI Architect, Builder, Writer</title>
+  <meta name="description" content="Senior Principal Architect at Red Hat helping enterprises design AI systems that stay legible as they grow.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;700&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #cc0000;
+      --red-dark: #a30000;
+      --black: #1a1a1a;
+      --gray-900: #333333;
+      --gray-600: #6b6b6b;
+      --gray-300: #d1d1d1;
+      --gray-100: #f5f5f5;
+      --white: #ffffff;
+      --font: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max-width: 800px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+      border-top: 4px solid var(--red);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- Layout --- */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
+    section + section {
+      border-top: 1px solid var(--gray-300);
+    }
+
+    /* --- Hero --- */
+    .hero {
+      padding: 80px 0 64px;
+      text-align: center;
+    }
+
+    .hero-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin-bottom: 24px;
+      border: 3px solid var(--gray-300);
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: var(--gray-600);
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .hero .tagline {
+      font-size: 1.05rem;
+      color: var(--gray-900);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .hero-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-links a {
+      color: var(--gray-600);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-links a:hover { color: var(--red); }
+
+    .hero-links svg {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+    }
+
+    /* --- Section headings --- */
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    section p {
+      color: var(--gray-900);
+      margin-bottom: 16px;
+    }
+
+    /* --- What I Do --- */
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .focus-card {
+      padding: 20px;
+      border: 1px solid var(--gray-300);
+      border-radius: 6px;
+      transition: border-color 0.2s;
+    }
+
+    .focus-card:hover {
+      border-color: var(--red);
+    }
+
+    .focus-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .focus-card p {
+      font-size: 0.92rem;
+      color: var(--gray-600);
+      margin-bottom: 0;
+    }
+
+    /* --- Timeline --- */
+    .timeline {
+      list-style: none;
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--gray-300);
+    }
+
+    .timeline li {
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .timeline li::before {
+      content: '';
+      position: absolute;
+      left: -23px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gray-300);
+      border: 2px solid var(--white);
+    }
+
+    .timeline li:first-child::before {
+      background: var(--red);
+    }
+
+    .timeline .role {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .timeline .org {
+      color: var(--gray-600);
+      font-size: 0.92rem;
+    }
+
+    .timeline .detail {
+      color: var(--gray-600);
+      font-size: 0.88rem;
+      margin-top: 4px;
+    }
+
+    /* --- Projects --- */
+    .project-list {
+      list-style: none;
+    }
+
+    .project-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .project-list li:last-child {
+      border-bottom: none;
+    }
+
+    .project-list a {
+      font-weight: 600;
+      color: var(--black);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .project-list a:hover {
+      color: var(--red);
+    }
+
+    .project-list .desc {
+      color: var(--gray-600);
+      font-size: 0.92rem;
+      margin-top: 4px;
+    }
+
+    .project-list .meta {
+      color: var(--gray-600);
+      font-size: 0.82rem;
+      margin-top: 4px;
+    }
+
+    /* --- Writing --- */
+    .writing-list {
+      list-style: none;
+    }
+
+    .writing-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-100);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .writing-list li:last-child {
+      border-bottom: none;
+    }
+
+    .writing-list a {
+      font-weight: 600;
+      color: var(--black);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .writing-list a:hover {
+      color: var(--red);
+    }
+
+    .writing-list .date {
+      color: var(--gray-600);
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    /* --- Speaking --- */
+    .speaking-list {
+      list-style: none;
+    }
+
+    .speaking-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .speaking-list li:last-child {
+      border-bottom: none;
+    }
+
+    .speaking-list .event {
+      font-weight: 600;
+    }
+
+    .speaking-list .topic {
+      color: var(--gray-600);
+      font-size: 0.92rem;
+    }
+
+    /* --- Principles --- */
+    .principles-list {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+    }
+
+    .principles-list li {
+      padding-left: 20px;
+      position: relative;
+      color: var(--gray-900);
+    }
+
+    .principles-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    /* --- Contact --- */
+    .contact-section {
+      text-align: center;
+      padding-bottom: 80px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gray-900);
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 10px 20px;
+      border: 1px solid var(--gray-300);
+      border-radius: 6px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-links a:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .contact-links svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--gray-600);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--gray-300);
+      border-bottom: 4px solid var(--red);
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.6rem; }
+      .hero .subtitle { font-size: 1rem; }
+      section { padding: 48px 0; }
+      .writing-list li { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <img class="hero-avatar" src="/static/img/profile.png" alt="Hunter Gerlach">
+      <h1>Hunter Gerlach</h1>
+      <p class="subtitle">Senior Principal Architect — GenAI at Red Hat</p>
+      <p class="tagline">I help enterprises design AI systems that stay legible as they grow. I believe the future belongs to those who build for clarity before scale.</p>
+      <div class="hero-links">
+        <a href="https://github.com/HunterGerlach" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a>
+        <a href="https://www.linkedin.com/in/hgerlach/" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
+        <a href="https://x.com/HunterGerlach" aria-label="X (Twitter)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X</a>
+        <a href="/blog.html" aria-label="Blog"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Blog</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I Do -->
+  <section>
+    <div class="container">
+      <p class="section-label">What I Do</p>
+      <h2>Building AI systems enterprises can actually trust</h2>
+      <p>At Red Hat, I work with organizations adopting generative AI — helping them move from proof-of-concept to production while keeping systems accountable, observable, and operable. My focus is on the architecture that makes AI useful without making it opaque.</p>
+      <div class="focus-grid">
+        <div class="focus-card">
+          <h3>Enterprise AI Architecture</h3>
+          <p>Designing GenAI systems on Red Hat OpenShift AI — RAG pipelines, LLM serving, agentic workflows, and InstructLab fine-tuning at enterprise scale.</p>
+        </div>
+        <div class="focus-card">
+          <h3>Cloud Modernization</h3>
+          <p>Helping organizations modernize applications on OpenShift with GitOps, CI/CD automation, and container-native patterns.</p>
+        </div>
+        <div class="focus-card">
+          <h3>Systems That Stay Legible</h3>
+          <p>Separating deterministic rules from probabilistic decisions. Making responsibility local. Designing for clarity before scale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career -->
+  <section>
+    <div class="container">
+      <p class="section-label">Career</p>
+      <h2>From startup founder to enterprise AI architect</h2>
+      <ul class="timeline">
+        <li>
+          <span class="role">Senior Principal Architect — GenAI</span>
+          <span class="org">Red Hat (IBM)</span>
+          <p class="detail">Leading AI architecture for enterprise customers. Red Hat Champion (OpenShift). Conference speaker at Red Hat Summit, Red Hat One, and KubeCon EU.</p>
+        </li>
+        <li>
+          <span class="role">Principal Architect — Application Development</span>
+          <span class="org">Red Hat</span>
+          <p class="detail">Built the VCS Collection System — pen-tested and load-tested for 1.8M daily users on ROSA. Open-sourced per Red Hat values.</p>
+        </li>
+        <li>
+          <span class="role">Co-Founder</span>
+          <span class="org">TriBlue Engineering</span>
+          <p class="detail">Won first place at the Kentucky Innovation Network statewide pitch competition for a natural gas purification startup.</p>
+        </li>
+        <li>
+          <span class="role">Founder &amp; CTO</span>
+          <span class="org">CEpoints</span>
+          <p class="detail">Built tools helping professionals manage continuing education requirements.</p>
+        </li>
+        <li>
+          <span class="role">Senior Software Development Engineer</span>
+          <span class="org">CoreSys Consulting Services</span>
+          <p class="detail">Designed and developed enterprise HR systems for the U.S. Army.</p>
+        </li>
+        <li>
+          <span class="role">Director of Operations / Technical Analyst</span>
+          <span class="org">Interapt</span>
+          <p class="detail">Software development and business process outsourcing.</p>
+        </li>
+      </ul>
+      <p style="margin-top: 12px; font-size: 0.92rem; color: var(--gray-600);">MBA — University of Louisville &middot; BS — Murray State University &middot; CompTIA Security+</p>
+    </div>
+  </section>
+
+  <!-- Open Source -->
+  <section>
+    <div class="container">
+      <p class="section-label">Open Source</p>
+      <h2>Selected projects</h2>
+      <ul class="project-list">
+        <li>
+          <a href="https://github.com/HunterGerlach/deep-thought">Deep Thought</a>
+          <p class="desc">A question-answering system that uses embeddings and a language model to find the most likely answer, with links to supporting sources.</p>
+          <p class="meta">Python &middot; GPL-3.0</p>
+        </li>
+        <li>
+          <a href="https://github.com/VCS-Collection-System">VCS Collection System</a>
+          <p class="desc">Document submission and review system for organizational compliance with government requirements. Built at Red Hat, open-sourced.</p>
+          <p class="meta">5 repos &middot; Pen-tested for 1.8M DAU</p>
+        </li>
+        <li>
+          <a href="https://github.com/HunterGerlach/agent-playbook">Agent Playbook</a>
+          <p class="desc">Universal, portable operational protocols, engineering standards, and skills for AI-assisted development.</p>
+          <p class="meta">Shell &middot; MIT</p>
+        </li>
+        <li>
+          <a href="https://github.com/HunterGerlach/summit-instructlab-demo-2024">InstructLab Demo</a>
+          <p class="desc">Red Hat Summit 2024 demo: community-driven LLM fine-tuning with InstructLab on OpenShift AI.</p>
+          <p class="meta">Python</p>
+        </li>
+        <li>
+          <a href="https://github.com/HunterGerlach/cybersecurity-lls-agents-with-mcp">Cybersecurity LLM Agents</a>
+          <p class="desc">Exploring cybersecurity LLM agents using the Model Context Protocol (MCP).</p>
+        </li>
+      </ul>
+      <p style="margin-top: 16px;"><a href="https://github.com/HunterGerlach?tab=repositories" style="color: var(--gray-600); font-size: 0.92rem; text-decoration: none; transition: color 0.2s;">View all 112 repositories &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- Writing -->
+  <section>
+    <div class="container">
+      <p class="section-label">Writing</p>
+      <h2>Recent posts</h2>
+      <ul class="writing-list">
+        <li>
+          <a href="/why-complex-systems-fail-quietly.html">Why Complex Systems Fail Quietly — and How to Correct Them</a>
+          <span class="date">Dec 2025</span>
+        </li>
+        <li>
+          <a href="/getting-a-job-at-red-hat.html">How to Get a Job at Red Hat</a>
+          <span class="date">Feb 2023</span>
+        </li>
+        <li>
+          <a href="/how-to-use-ai-in-software-development.html">How to Effectively Use AI Tools in Software Development</a>
+          <span class="date">Jan 2023</span>
+        </li>
+        <li>
+          <a href="/reflections-on-2022.html">Reflections on 2022: Personal and Professional Growth</a>
+          <span class="date">Dec 2022</span>
+        </li>
+        <li>
+          <a href="/learning-to-code.html">Learning to Code</a>
+          <span class="date">Dec 2022</span>
+        </li>
+      </ul>
+      <p style="margin-top: 16px;"><a href="/blog.html" style="color: var(--gray-600); font-size: 0.92rem; text-decoration: none; transition: color 0.2s;">All posts &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- Speaking -->
+  <section>
+    <div class="container">
+      <p class="section-label">Speaking</p>
+      <h2>Conference demos and presentations</h2>
+      <ul class="speaking-list">
+        <li>
+          <span class="event">KubeCon EU 2025</span>
+          <p class="topic">AI/ML on Kubernetes — demo materials and patterns</p>
+        </li>
+        <li>
+          <span class="event">Red Hat Summit 2024</span>
+          <p class="topic">InstructLab: Community-driven LLM fine-tuning on OpenShift AI</p>
+        </li>
+        <li>
+          <span class="event">Red Hat One 2024</span>
+          <p class="topic">Generative AI demo — enterprise AI architecture patterns</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section>
+    <div class="container">
+      <p class="section-label">How I Think</p>
+      <h2>Principles that guide my work</h2>
+      <ul class="principles-list">
+        <li><strong>Clarity before scale.</strong> Know where complexity belongs — and where it does not.</li>
+        <li><strong>Agency over agents.</strong> Add AI capabilities without losing the ability for humans to understand, intervene, and remain accountable.</li>
+        <li><strong>Concepts over technologies.</strong> Technologies come and go. The underlying concepts stay.</li>
+        <li><strong>Open source by default.</strong> Reduce dependencies. Build in the open. On-ramp others into the community.</li>
+        <li><strong>Ship, then improve.</strong> Consistency and iteration compound. Perfect is the enemy of done.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-section">
+    <div class="container">
+      <p class="section-label">Get in Touch</p>
+      <h2>Let's talk</h2>
+      <p>Whether you're exploring enterprise AI adoption, looking for a conference speaker, or want to collaborate on open source — I'd like to hear from you.</p>
+      <div class="contact-links">
+        <a href="/contact"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email</a>
+        <a href="https://www.linkedin.com/in/hgerlach/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
+        <a href="https://x.com/HunterGerlach"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Louisville, KY &middot; Hunter Gerlach
+    </div>
+  </footer>
+
+</body>
+</html>
