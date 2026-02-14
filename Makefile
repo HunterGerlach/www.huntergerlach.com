@@ -1,4 +1,4 @@
-.PHONY: build serve install test
+.PHONY: build serve install test check-links
 
 build:
 	bundle exec jekyll build
@@ -8,6 +8,9 @@ serve:
 
 test: build
 	bundle exec htmlproofer ./_site --disable-external --ignore-urls "/^#/" --no-enforce-https
+
+check-links:
+	bash scripts/check-external-links.sh
 
 install:
 	bundle install
