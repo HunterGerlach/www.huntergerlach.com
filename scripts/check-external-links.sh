@@ -53,6 +53,8 @@ for file in "${FILES[@]}"; do
     [[ "$url" =~ ^https?://[^/]+/?$ ]] && continue
     # Skip placeholder URLs in documentation
     [[ "$url" =~ YOUR-USERNAME|YOUR-ORG|example\.org ]] && continue
+    # Skip domains known to block automated requests (403 to bots, works in browsers)
+    [[ "$url" =~ freeprivacypolicy\.com ]] && continue
     # Store first file where URL appears
     if [[ -z "${URL_SOURCE[$url]:-}" ]]; then
       URL_SOURCE["$url"]="$file"
