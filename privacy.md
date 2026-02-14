@@ -1,7 +1,7 @@
 ---
 layout: page
 ---
-<div class="container" style="text-align: left">
+<div class="container" style="text-align: left" markdown="1">
 
 # Privacy Policy
 
