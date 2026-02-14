@@ -134,6 +134,9 @@ body {
   padding-top: 12px;
   word-spacing: 25px;
 }
+.social svg {
+  vertical-align: -0.1em;
+}
 .social h4 > a {
   color: #000000;
   transition: color 0.2s;
@@ -194,20 +197,39 @@ body {
 }
 
 /* Contact form */
-form#formaction > fieldset > input, form#formaction > fieldset > textarea {
-    margin: 0 auto;
-}
 form#formaction {
     margin-bottom: 24px;
 }
-form#formaction .pure-group {
-    margin-bottom: 12px;
+form#formaction fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0 0 12px;
 }
-form#formaction .pure-button-primary {
+form#formaction .form-input {
+    display: block;
+    width: 66.666%;
+    margin: 0 auto 8px;
+    padding: 8px 10px;
+    font-size: 16px;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+form#formaction textarea.form-input {
+    resize: vertical;
+}
+form#formaction .form-btn {
     background-color: #2b6cb0;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
     transition: background-color 0.2s;
 }
-form#formaction .pure-button-primary:hover {
+form#formaction .form-btn:hover {
     background-color: #1a5294;
 }
 
