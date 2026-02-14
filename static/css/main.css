@@ -30,7 +30,7 @@ body {
   transition: color 0.2s;
 }
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-  color: #5890e6;
+  color: #2b6cb0;
 }
 .navbar-default .navbar-text {
   color: #6b6b6b;
@@ -40,14 +40,14 @@ body {
   transition: color 0.2s;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #5890e6;
+  color: #2b6cb0;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #5890e6;
+  color: #2b6cb0;
   background-color: #ffffff;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  color: #5890e6;
+  color: #2b6cb0;
   background-color: #ffffff;
 }
 .navbar-default .navbar-toggle {
@@ -67,17 +67,17 @@ body {
   color: #6b6b6b;
 }
 .navbar-default .navbar-link:hover {
-  color: #5890e6;
+  color: #2b6cb0;
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #6b6b6b;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #5890e6;
+    color: #2b6cb0;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #5890e6;
+    color: #2b6cb0;
     background-color: #ffffff;
   }
 }
@@ -94,11 +94,11 @@ body {
   margin: 20px 0;
 }
 .container a {
-  color: #5890e6;
+  color: #2b6cb0;
   transition: color 0.2s;
 }
 .container a:hover {
-  color: #56b1ff;
+  color: #1a5294;
 }
 .img-responsive {
  display: block;
@@ -119,10 +119,10 @@ body {
   font-size: 15px;
 }
 .panel-default h4 a, h5 a {
-  color: #5890e6;
+  color: #2b6cb0;
 }
 .panel-default h4 a:hover, h5 a:hover {
-  color: #56b1ff;
+  color: #1a5294;
 }
 .panel{
   border-style: none;
@@ -139,7 +139,7 @@ body {
   transition: color 0.2s;
 }
 .social h4 > a:hover {
-  color: #5890e6;
+  color: #2b6cb0;
 }
 .avatar {
   padding-top: 5%;
@@ -192,11 +192,11 @@ form#formaction .pure-group {
     margin-bottom: 12px;
 }
 form#formaction .pure-button-primary {
-    background-color: #5890e6;
+    background-color: #2b6cb0;
     transition: background-color 0.2s;
 }
 form#formaction .pure-button-primary:hover {
-    background-color: #3a70c4;
+    background-color: #1a5294;
 }
 
 /* Footer
