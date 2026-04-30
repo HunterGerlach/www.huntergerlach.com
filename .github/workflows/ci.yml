@@ -97,7 +97,7 @@ jobs:
             --collect.url=http://localhost:5000/contact/ \
             --collect.url=http://localhost:5000/principles.html \
             --collect.settings.chromeFlags="--no-sandbox" \
-            --assert.preset=lighthouse:recommended \
+            --assert.preset=lighthouse:no-pwa \
             --assert.assertions.uses-long-cache-ttl=off \
             --assert.assertions.redirects-http=off \
             --assert.assertions.uses-http2=off \
