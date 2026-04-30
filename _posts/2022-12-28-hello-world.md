@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hello World
-comments_id: auto
+comments_id: 7
 tags:
 - meta
 - programming

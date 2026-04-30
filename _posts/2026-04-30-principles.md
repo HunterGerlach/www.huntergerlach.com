@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Principles: A Living List"
-comments_id: auto
+comments_id: 8
 tags:
 - principles
 - leadership
