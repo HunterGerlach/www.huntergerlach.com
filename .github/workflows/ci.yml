@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,13 +39,10 @@ jobs:
           path: ./_site
 
   accessibility:
-    needs: build-and-test
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Download site artifact
         uses: actions/download-artifact@v4
         with:
@@ -57,16 +54,68 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install pa11y-ci
-        run: npm install -g pa11y-ci
-
-      - name: Serve site and run a11y audit
+      - name: Run WCAG 2.1 AA audit
         run: |
-          npx serve ./_site -l 5000 &
+          npm install -g pa11y-ci serve
+          serve ./_site -l 5000 &
           sleep 3
           URLS=$(find ./_site -name '*.html' -not -path './_site/404.html' \
             | sed 's|^./_site|http://localhost:5000|' \
             | sed 's|/index\.html$|/|')
-          echo "Testing URLs:"
-          echo "$URLS"
           echo "$URLS" | xargs pa11y-ci
+
+  lighthouse:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: _site
+          path: ./_site
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Lighthouse audit
+        run: |
+          npm install -g @lhci/cli serve
+          serve ./_site -l 5000 &
+          sleep 3
+          lhci autorun \
+            --collect.url=http://localhost:5000/ \
+            --collect.url=http://localhost:5000/blog/ \
+            --collect.url=http://localhost:5000/contact/ \
+            --collect.url=http://localhost:5000/principles.html \
+            --assert.preset=lighthouse:recommended \
+            --assert.assertions.uses-long-cache-ttl=off \
+            --assert.assertions.redirects-http=off \
+            --assert.assertions.uses-http2=off \
+            --assert.assertions.canonical=off \
+            --upload.target=temporary-public-storage
+
+  image-size-check:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: _site
+          path: ./_site
+
+      - name: Verify no oversized images
+        run: |
+          oversized=$(find ./_site -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.gif" -o -name "*.webp" \) -size +200k)
+          if [ -n "$oversized" ]; then
+            echo "ERROR: Images over 200KB found:"
+            echo "$oversized" | while read f; do
+              echo "  $(du -h "$f" | cut -f1)  $f"
+            done
+            exit 1
+          fi
+          echo "All images under 200KB"

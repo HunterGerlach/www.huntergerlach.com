@@ -1,48 +1,98 @@
----
-layout: layout
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} | Hunter Gerlach</title>
+  {% assign page_description = page.excerpt | strip_html | truncate: 160 %}
+  <meta name="description" content="{{ page_description }}">
+  <meta property="og:title" content="{{ page.title }} | Hunter Gerlach">
+  <meta property="og:description" content="{{ page_description }}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.huntergerlach.com{{ page.url }}">
+  <meta property="og:image" content="https://www.huntergerlach.com/static/img/profile.webp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@HunterGerlach">
+  <meta name="twitter:title" content="{{ page.title }} | Hunter Gerlach">
+  <meta name="twitter:description" content="{{ page_description }}">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src https://api.github.com https://www.google-analytics.com https://www.googletagmanager.com; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  {% include styles.html %}
+</head>
+<body>
 
-<div class="container">
-	<div class="blog-post">
-		<h3>
-		  <strong><a href="{{ page.url }}">{{ page.title }}</a></strong>
-		</h3>
-	</div>
-	<div class="blog-title">
-		<h4>
-		{{ page.date | date: "%B %e, %Y" }}
-			&nbsp;&nbsp;
-			{% for tag in page.tags %}
-			 <span class="badge text-bg-success">{{ tag }}</span>
-			{% endfor %}
-		</h4>
-	</div>
-	<div class="card">
-		<div class="card-body">
-			<div class="blogpost">
-			  {{ content }}
-			   <hr>
-			   <div class="related-posts">
-				   <h5>Related Posts</h5>
-				   {% for post in site.related_posts limit:3 %}
-						<div class="row">
-							 <div class="col-sm-4 col-md-4 col-lg-4">
-								 <h6 style="text-align: right">
-								 	{{ post.date | date: "%B %e, %Y" }}
-								 </h6>
-							 </div>
-							 <div class="col-sm-8 col-md-8 col-lg-8">
-								 <h6 style="text-align: left">
-								 	<strong><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></strong>
-								 </h6>
-							 </div>
-						</div>
-					{% endfor %}
-			   </div>
-			</div>
-		</div>
-	</div>
-	{% if page.comments_id %}
-			{% include comments.html %}
-		{% endif %}
-</div>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="nav-home">Hunter Gerlach</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="post-header" id="main">
+      <p class="section-label"><a href="/blog/" style="color: inherit; text-decoration: none;">Blog</a></p>
+      <h1>{{ page.title }}</h1>
+      <p class="post-meta">{{ page.date | date: "%B %e, %Y" }}</p>
+      {% if page.tags.size > 0 %}
+      <div class="post-tags">
+        {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    {% if page.comments_id %}
+    <div style="padding: 24px 0; border-top: 1px solid var(--gray-300);">
+      {% include comments.html %}
+    </div>
+    {% endif %}
+
+    {% assign related = site.related_posts | limit: 3 %}
+    {% if related.size > 0 %}
+    <div style="padding: 24px 0; border-top: 1px solid var(--gray-300);">
+      <p class="section-label">Related</p>
+      <ul class="blog-list">
+        {% for post in site.related_posts limit:3 %}
+        <li>
+          <a href="{{ post.url }}">
+            <span class="post-title">{{ post.title }}</span>
+            <span class="post-date">{{ post.date | date: "%B %e, %Y" }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <div style="padding: 24px 0 48px; border-top: 1px solid var(--gray-300);">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+        {% if page.previous.url %}
+        <a href="{{ page.previous.url }}" style="color: var(--gray-600); font-size: 0.9rem; text-decoration: none;">&larr; {{ page.previous.title }}</a>
+        {% else %}
+        <span></span>
+        {% endif %}
+        {% if page.next.url %}
+        <a href="{{ page.next.url }}" style="color: var(--gray-600); font-size: 0.9rem; text-decoration: none;">{{ page.next.title }} &rarr;</a>
+        {% else %}
+        <span></span>
+        {% endif %}
+      </div>
+      <a href="/blog/" style="color: var(--gray-600); font-size: 0.85rem; text-decoration: none;">All posts</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      Louisville, KY, USA, Earth &middot; Hunter Gerlach &middot; <a href="/privacy/" style="color: inherit; text-decoration: none;">Privacy</a> &middot; <a href="https://github.com/{{ site.github }}/www.huntergerlach.com" style="color: inherit; text-decoration: none;">View Source</a>
+    </div>
+  </footer>
+
+  {% include scripts.html %}
+</body>
+</html>

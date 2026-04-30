@@ -1,0 +1,18 @@
+/* TEAM */
+Name: Hunter Gerlach
+Role: Everything
+Site: https://www.huntergerlach.com
+Location: Louisville, KY, USA, Earth
+Twitter: @HunterGerlach
+
+/* SITE */
+Standards: HTML5, CSS3
+Software: Jekyll
+Fonts: Source Sans Pro (self-hosted, SIL Open Font License)
+Hosting: GitHub Pages
+Source: https://github.com/HunterGerlach/www.huntergerlach.com
+
+/* THANKS */
+Font: Adobe (Source Sans Pro)
+Icons: Inline SVG
+Tennis balls: Also inline SVG

@@ -1,26 +1,124 @@
 ---
-layout: page
+layout: null
+permalink: /contact/
 ---
-<div class="container">
-    <h2>Contact Me</h2>
-    <form id="formaction" method="POST">
-        <div class="form-group">
-            <label for="name" class="visually-hidden">Your name</label>
-            <input type="text" id="name" name="name" class="form-input" placeholder="Your name">
-            <label for="email" class="visually-hidden">Your email address</label>
-            <input type="email" id="email" name="email" class="form-input" placeholder="Your email address">
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Hunter Gerlach</title>
+  <meta name="description" content="Get in touch with Hunter Gerlach. Questions, ideas, collaborations welcome.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src https://api.github.com https://www.google-analytics.com https://www.googletagmanager.com; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  {% include styles.html %}
+  <style>
+    .form-group {
+      margin-bottom: 16px;
+    }
 
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      color: var(--black);
+      background: var(--gray-100);
+      border: 1px solid var(--gray-300);
+      border-radius: 6px;
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--red);
+    }
+
+    .form-input::placeholder {
+      color: var(--gray-600);
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .form-btn {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      padding: 12px 32px;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+      width: auto;
+    }
+
+    .form-btn:hover {
+      background: var(--red-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="nav-home">Hunter Gerlach</a>
+    </div>
+  </nav>
+
+  <section id="main">
+    <div class="container">
+      <p class="section-label">Say hi</p>
+      <h2 id="contact-heading"></h2>
+      <p id="contact-message"></p>
+      <script>
+        (function() {
+          var items = [
+            {% for item in site.data.contact %}{ heading: "{{ item.heading }}", text: "{{ item.text }}" }{% unless forloop.last %},{% endunless %}{% endfor %}
+          ];
+          var pick = items[Math.floor(Math.random() * items.length)];
+          document.getElementById('contact-heading').textContent = pick.heading;
+          document.getElementById('contact-message').textContent = pick.text;
+        })();
+      </script>
+      <form id="formaction" method="POST">
         <div class="form-group">
-            <label for="subject" class="visually-hidden">Subject</label>
-            <input type="text" id="subject" name="subject" class="form-input" placeholder="Subject">
-            <label for="message" class="visually-hidden">Message</label>
-            <textarea id="message" name="message" rows="10" cols="30" class="form-input" placeholder="Message..."></textarea>
-            <input type="text" name="_gotcha" style="display:none" aria-hidden="true" tabindex="-1" autocomplete="off" />
-            <input type="hidden" name="_next" value="{{ site.baseurl }}/thanks" />
+          <label for="name" class="visually-hidden">Your name</label>
+          <input type="text" id="name" name="name" class="form-input" placeholder="Your name">
         </div>
-        <button type="submit" class="form-input form-btn">Send</button>
-    </form>
-    <p><a href="{{ site.url }}">Back to homepage</a></p>
-    <script src="{{ site.baseurl }}/static/js/contact.js"></script>
-</div>
+        <div class="form-group">
+          <label for="email" class="visually-hidden">Your email address</label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="Your email address">
+        </div>
+        <div class="form-group">
+          <label for="subject" class="visually-hidden">Subject</label>
+          <input type="text" id="subject" name="subject" class="form-input" placeholder="Subject">
+        </div>
+        <div class="form-group">
+          <label for="message" class="visually-hidden">Message</label>
+          <textarea id="message" name="message" class="form-input" placeholder="What's on your mind?"></textarea>
+          <input type="text" name="_gotcha" style="display:none" aria-hidden="true" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="_next" value="/thanks" />
+        </div>
+        <button type="submit" class="form-btn">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Louisville, KY, USA, Earth &middot; Hunter Gerlach &middot; <a href="/privacy/" style="color: inherit; text-decoration: none;">Privacy</a> &middot; <a href="https://github.com/{{ site.github }}/www.huntergerlach.com" style="color: inherit; text-decoration: none;">View Source</a>
+    </div>
+  </footer>
+
+  {% include scripts.html %}
+  <script src="/static/js/contact.js"></script>
+</body>
+</html>

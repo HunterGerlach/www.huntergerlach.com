@@ -1,5 +1,46 @@
----
-layout: layout
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} | Hunter Gerlach</title>
+  {% assign page_description = page.excerpt | strip_html | truncate: 160 | default: page.title %}
+  <meta name="description" content="{{ page_description }}">
+  <meta property="og:title" content="{{ page.title }} | Hunter Gerlach">
+  <meta property="og:description" content="{{ page_description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.huntergerlach.com{{ page.url }}">
+  <meta property="og:image" content="https://www.huntergerlach.com/static/img/profile.webp">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src https://api.github.com https://www.google-analytics.com https://www.googletagmanager.com; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  {% include styles.html %}
+</head>
+<body>
 
-{{ content }}
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="nav-home">Hunter Gerlach</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="post-header" id="main">
+      <h1>{{ page.title }}</h1>
+    </div>
+
+    <div class="post-content">
+      {{ content }}
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      Louisville, KY, USA, Earth &middot; Hunter Gerlach &middot; <a href="/privacy/" style="color: inherit; text-decoration: none;">Privacy</a> &middot; <a href="https://github.com/{{ site.github }}/www.huntergerlach.com" style="color: inherit; text-decoration: none;">View Source</a>
+    </div>
+  </footer>
+
+  {% include scripts.html %}
+</body>
+</html>

@@ -1,51 +1,55 @@
 ---
-layout: layout
-title: Blog
+layout: null
+permalink: /blog/
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | Hunter Gerlach</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src https://api.github.com https://www.google-analytics.com https://www.googletagmanager.com; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="description" content="Blog posts by Hunter Gerlach on AI, enterprise architecture, strategy, and engineering.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@HunterGerlach">
+  <meta name="twitter:title" content="Blog | Hunter Gerlach">
+  <meta name="twitter:description" content="Blog posts on AI, enterprise architecture, strategy, and engineering.">
+  {% include styles.html %}
+</head>
+<body>
 
-<div class="container">
-  <h3>Latest Post</h3>
-  <div class="card">
-    <div class="card-body">
-      {% for post in site.posts limit:1 %}
-      <div class="row">
-        <div class="col-sm-4 col-md-4 col-lg-4">
-          <h5 style="text-align: right">{{ post.date | date: "%B %e, %Y" }}</h5>
-        </div>
-        <div class="col-sm-8 col-md-8 col-lg-8">
-          <h5 style="text-align: left">
-            <strong
-              ><a href="{{ site.url }}{{ post.url }}"
-                >{{ post.title }}</a
-              ></strong
-            >
-          </h5>
-        </div>
-      </div>
-      {% endfor %}
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/" class="nav-home">Hunter Gerlach</a>
     </div>
-  </div>
-</div>
-<div class="container">
-  <h3>Archive</h3>
-  <div class="card">
-    <div class="card-body">
-      {% for post in site.posts offset:1 %}
-      <div class="row">
-        <div class="col-sm-4 col-md-4 col-lg-4">
-          <h5 style="text-align: right">{{ post.date | date: "%B %e, %Y" }}</h5>
-        </div>
-        <div class="col-sm-8 col-md-8 col-lg-8">
-          <h5 style="text-align: left">
-            <strong
-              ><a href="{{ site.url }}{{ post.url }}"
-                >{{ post.title }}</a
-              ></strong
-            >
-          </h5>
-        </div>
-      </div>
-      {% endfor %}
+  </nav>
+
+  <section id="main">
+    <div class="container">
+      <p class="section-label">Blog</p>
+      <h2>Writing</h2>
+      <ul class="blog-list">
+        {% for post in site.posts %}
+        <li>
+          <a href="{{ post.url }}">
+            <span class="post-title">{{ post.title }}</span>
+            <span class="post-date">{{ post.date | date: "%B %e, %Y" }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
-  </div>
-</div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Louisville, KY, USA, Earth &middot; Hunter Gerlach &middot; <a href="/privacy/" style="color: inherit; text-decoration: none;">Privacy</a> &middot; <a href="https://github.com/{{ site.github }}/www.huntergerlach.com" style="color: inherit; text-decoration: none;">View Source</a>
+    </div>
+  </footer>
+
+  {% include scripts.html %}
+</body>
+</html>

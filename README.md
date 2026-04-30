@@ -4,35 +4,38 @@
 [![GitHub Issues](https://img.shields.io/static/v1?label=GitHub+Issues&message=comments&color=purple)](https://github.com/HunterGerlach/www.huntergerlach.com/issues)
 [![GitHub License](https://img.shields.io/github/license/HunterGerlach/www.huntergerlach.com.svg)](https://github.com/HunterGerlach/www.huntergerlach.com/blob/main/LICENSE)
 
-Personal blog built with [Jekyll](https://jekyllrb.com/) and [Bootstrap](https://getbootstrap.com/), freely hosted on [GitHub Pages](https://pages.github.com/). Uses GitHub Issues as a comments backend.
+Personal site built with [Jekyll](https://jekyllrb.com/), freely hosted on [GitHub Pages](https://pages.github.com/). Uses GitHub Issues as a comments backend.
 
 ## Architecture Overview
 
 - **Jekyll** static site generator hosted on **GitHub Pages**
-- **GitHub Issues** as the comment backend — no third-party comment service needed (see [ADR 0001](docs/adr/0001-use-github-issues-for-comments.md))
-- **Bootstrap 5.3** CSS for layout (grid, navbar, cards) — no JS bundle (see [ADR 0003](docs/adr/0003-migrate-bootstrap-3-to-5.md))
-- **Google Fonts** (Source Sans Pro) for typography
+- **GitHub Issues** as the comment backend (see [ADR 0001](docs/adr/0001-use-github-issues-for-comments.md))
+- **No CSS framework** — custom CSS with CSS Grid, Flexbox, and custom properties
+- **Self-hosted fonts** (Source Sans Pro, SIL Open Font License)
+- **Dark mode by default** with light mode toggle (localStorage preference)
 - **Formspree** for the contact form
 - **Inline SVGs** for icons (no icon font libraries)
 - **Content-Security-Policy** restricting resource origins (see [ADR 0005](docs/adr/0005-add-content-security-policy.md))
-- **JSON-LD** structured data for blog posts and site metadata
+- **JSON-LD** structured data for site metadata
+- **Google Analytics** (GA4) for usage insights
 
 ## Project Structure
 
 ```
 _posts/          Blog posts (Markdown)
-_layouts/        Page templates (layout, post, page)
-_includes/       Reusable partials (comments, header, footer, analytics, social)
-static/css/      Stylesheets (main, syntax highlighting, comments)
-static/js/       External scripts (analytics, comments, contact form)
+_layouts/        Page templates (post, page, atom)
+_includes/       Reusable partials (styles, scripts, comments, feed)
+_data/           YAML data files (contact messages)
+static/css/      Stylesheets (main, syntax highlighting)
+static/js/       Scripts (comments, contact form)
 static/img/      Images
-.agent/          Agent playbook support files (instructions, overrides)
-.github/         CI workflows (build validation, link checking, comment issues)
+static/fonts/    Self-hosted Source Sans Pro (WOFF2)
+.agent/          Agent playbook support files
+.well-known/     security.txt
+.github/         CI workflows
 docs/adr/        Architecture Decision Records
-scripts/         Maintenance scripts (external link checker)
+scripts/         Maintenance scripts
 _config.yml      Jekyll configuration
-AGENTS.md        AI agent bootstrap instructions
-Makefile         Canonical build/test/serve commands
 ```
 
 ## How Comments Work
@@ -41,9 +44,9 @@ Each blog post can optionally have a `comments_id` field in its frontmatter that
 
 ### Adding comments to a new post
 
-Set `comments_id: auto` in the post's frontmatter and push to `main`. The `create-comment-issues` workflow will automatically create a GitHub Issue and replace `auto` with the real issue number.
+Comments are enabled by default. Every new post automatically gets `comments_id: auto` via Jekyll defaults in `_config.yml`. When you push to `main`, the `create-comment-issues` workflow creates a GitHub Issue and replaces `auto` with the real issue number.
 
-To add comments manually instead, create a GitHub Issue in this repo, note its number, and set `comments_id: <number>` in the frontmatter.
+To disable comments on a specific post, set `comments_id:` (empty) in its frontmatter. To set a specific issue number manually, use `comments_id: <number>`.
 
 ## Writing a New Blog Post
 
@@ -52,16 +55,16 @@ To add comments manually instead, create a GitHub Issue in this repo, note its n
 
    ```yaml
    ---
-   layout: post
    title: Your Post Title
-   comments_id: auto
    tags:
    - topic
    - another-topic
    ---
    ```
 
-   `comments_id` is optional — omit it if you don't want comments on the post. Set it to `auto` to have a GitHub Issue created automatically on push.
+   `layout: post` and `comments_id: auto` are inherited from defaults in `_config.yml`. No need to specify them unless overriding.
+
+   `comments_id` defaults to `auto` via `_config.yml`. You can omit it (comments enabled), set it to a specific issue number, or leave it empty to disable comments.
 
 3. Write content in Markdown below the frontmatter.
 4. Push to `main` — GitHub Pages builds and deploys automatically.

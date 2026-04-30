@@ -1,14 +1,85 @@
 ---
-layout: layout
-title: Page not found
+layout: null
 permalink: /404.html
-sitemap: false
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 | Hunter Gerlach</title>
+  <meta name="description" content="Page not found. Unforced error.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://avatars.githubusercontent.com; connect-src https://api.github.com https://www.google-analytics.com https://www.googletagmanager.com; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  {% include styles.html %}
+  <style>
+    .four-oh-four {
+      text-align: center;
+      padding: 120px 24px;
+    }
 
-<div class="container">
-  <div class="page-not-found">
-    <h2>Page not found</h2>
-    <p>The page you're looking for doesn't exist or has been moved.</p>
-    <p><a href="/">Back to homepage</a> &middot; <a href="/blog.html">Read the blog</a></p>
+    .four-oh-four h1 {
+      font-size: 6rem;
+      font-weight: 200;
+      color: var(--red);
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .four-oh-four h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .four-oh-four p {
+      color: var(--gray-600);
+      max-width: 420px;
+      margin: 0 auto 32px;
+    }
+
+    .four-oh-four a {
+      color: var(--red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .four-oh-four a:hover {
+      text-decoration: underline;
+    }
+
+    .tennis-ball-bounce {
+      display: inline-block;
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="four-oh-four" id="main">
+    <div class="container">
+      <h1>4<span class="tennis-ball-bounce">&#127934;</span>4</h1>
+      <h2>Unforced error</h2>
+      <p>This page went out of bounds. Maybe it was moved, maybe it never existed, or maybe you just typed something creative in the URL bar.</p>
+      <p>
+        <a href="/">Back to the court</a>
+      </p>
+    </div>
   </div>
-</div>
+
+  <footer>
+    <div class="container">
+      Louisville, KY, USA, Earth &middot; Hunter Gerlach &middot; <a href="/privacy/" style="color: inherit; text-decoration: none;">Privacy</a> &middot; <a href="https://github.com/{{ site.github }}/www.huntergerlach.com" style="color: inherit; text-decoration: none;">View Source</a>
+    </div>
+  </footer>
+
+  {% include scripts.html %}
+</body>
+</html>

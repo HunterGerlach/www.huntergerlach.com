@@ -24,6 +24,17 @@ linkedin: hgerlach
 #stackoverflow: username   #e.g: users/2735833/proton1h1
 google_analytics: G-246NB12NH0
 
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: post
+      comments_id: auto
+
+include:
+  - .well-known
+
 exclude:
   - vendor
   - scripts
