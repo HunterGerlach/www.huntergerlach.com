@@ -46,8 +46,8 @@
 }
 
 [data-theme="light"] {
-  --red: #cc0000;
-  --red-dark: #a30000;
+  --red: #ee0000;
+  --red-dark: #cc0000;
   --black: #1a1a1a;
   --gray-900: #333333;
   --gray-600: #6b6b6b;
