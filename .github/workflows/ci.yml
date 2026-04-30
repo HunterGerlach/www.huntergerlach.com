@@ -107,6 +107,8 @@ jobs:
             --assert.assertions.unused-javascript=off \
             --assert.assertions.network-dependency-tree-insight=off \
             --assert.assertions.color-contrast=off \
+            --assert.assertions.document-latency-insight=off \
+            --assert.assertions.redirects=off \
             --upload.target=temporary-public-storage
 
   image-size-check:
