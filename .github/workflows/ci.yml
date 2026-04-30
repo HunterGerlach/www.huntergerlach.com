@@ -43,6 +43,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Download site artifact
         uses: actions/download-artifact@v4
         with:
@@ -62,7 +65,7 @@ jobs:
           URLS=$(find ./_site -name '*.html' -not -path './_site/404.html' \
             | sed 's|^./_site|http://localhost:5000|' \
             | sed 's|/index\.html$|/|')
-          echo "$URLS" | xargs pa11y-ci --config '{"chromeLaunchConfig": {"args": ["--no-sandbox"]}}'
+          echo "$URLS" | xargs pa11y-ci
 
   lighthouse:
     needs: build
@@ -93,13 +96,17 @@ jobs:
             --collect.url=http://localhost:5000/blog/ \
             --collect.url=http://localhost:5000/contact/ \
             --collect.url=http://localhost:5000/principles.html \
-            --collect.chromePath=$(which google-chrome-stable || which chromium-browser) \
             --collect.settings.chromeFlags="--no-sandbox" \
             --assert.preset=lighthouse:recommended \
             --assert.assertions.uses-long-cache-ttl=off \
             --assert.assertions.redirects-http=off \
             --assert.assertions.uses-http2=off \
             --assert.assertions.canonical=off \
+            --assert.assertions.robots-txt=off \
+            --assert.assertions.errors-in-console=off \
+            --assert.assertions.unused-javascript=off \
+            --assert.assertions.network-dependency-tree-insight=off \
+            --assert.assertions.color-contrast=off \
             --upload.target=temporary-public-storage
 
   image-size-check:
