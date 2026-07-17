@@ -44,9 +44,9 @@ Each blog post can optionally have a `comments_id` field in its frontmatter that
 
 ### Adding comments to a new post
 
-Comments are enabled by default. Every new post automatically gets `comments_id: auto` via Jekyll defaults in `_config.yml`. When you push to `main`, the `create-comment-issues` workflow creates a GitHub Issue and replaces `auto` with the real issue number.
+Add `comments_id: auto` to a new post's frontmatter. When you push to `main`, the `create-comment-issues` workflow creates a GitHub Issue and replaces `auto` with the real issue number.
 
-To disable comments on a specific post, set `comments_id:` (empty) in its frontmatter. To set a specific issue number manually, use `comments_id: <number>`.
+To disable comments, omit `comments_id`. To set a specific issue number manually, use `comments_id: <number>`.
 
 ## Writing a New Blog Post
 
@@ -56,15 +56,14 @@ To disable comments on a specific post, set `comments_id:` (empty) in its frontm
    ```yaml
    ---
    title: Your Post Title
+   comments_id: auto
    tags:
    - topic
    - another-topic
    ---
    ```
 
-   `layout: post` and `comments_id: auto` are inherited from defaults in `_config.yml`. No need to specify them unless overriding.
-
-   `comments_id` defaults to `auto` via `_config.yml`. You can omit it (comments enabled), set it to a specific issue number, or leave it empty to disable comments.
+   `layout: post` is inherited from defaults in `_config.yml`. `comments_id: auto` must be in the file for the workflow to detect it and create the GitHub Issue. Omit it to disable comments.
 
 3. Write content in Markdown below the frontmatter.
 4. Push to `main` — GitHub Pages builds and deploys automatically.

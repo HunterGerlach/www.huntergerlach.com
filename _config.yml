@@ -30,7 +30,6 @@ defaults:
       type: "posts"
     values:
       layout: post
-      comments_id: auto
 
 include:
   - .well-known

@@ -1,5 +1,6 @@
 ---
 title: "A Constitutional Republic for Your AI Agents"
+comments_id: auto
 tags:
 - ai
 - agents

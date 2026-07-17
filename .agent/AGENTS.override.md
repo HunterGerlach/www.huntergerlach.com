@@ -45,10 +45,11 @@ Gemfile          Ruby dependencies
 ### Content
 - Post filenames: `YYYY-MM-DD-title-slug.md`
 - Posts are served at `/:title.html` (configured via `permalink` in `_config.yml`)
-- `layout: post` and `comments_id: auto` are Jekyll defaults (set in `_config.yml`), no need to specify them
-- Front matter only needs: `title`, and optionally `tags`
+- `layout: post` is a Jekyll default (set in `_config.yml`)
+- Front matter needs: `title`, `comments_id: auto`, and optionally `tags`
+- `comments_id: auto` must be in the file (not inherited) for the workflow to detect it
 - Comments are auto-created on push via the `create-comment-issues` workflow
-- To disable comments on a post, set `comments_id:` (empty) in frontmatter
+- To disable comments on a post, omit `comments_id`
 - No em dashes in new content
 
 ### Code & Styling
